@@ -2,6 +2,7 @@ services:
   - type: web
     name: travelism-api
     env: python
+    pythonVersion: "3.12.7"
     region: singapore
     plan: free
     buildCommand: pip install -r requirements.txt
