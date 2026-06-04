@@ -34,6 +34,9 @@ class ProfileModel(BaseModel):
     citizenship: Optional[str] = None
     departure_city: Optional[str] = None
     language: Optional[str] = "ru"
+    halal_mode: Optional[bool] = None
+    family_mode: Optional[bool] = None
+    senior_mode: Optional[bool] = None
 
 class TripModel(BaseModel):
     telegram_id: int
