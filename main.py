@@ -178,6 +178,11 @@ def save_trip(data: TripModel):
 
         # Начислить +10 XP за поездку
         _add_points_internal(db, data.telegram_id, 10)
+# Увеличить счётчик поездок trips_count на +1
+        u = db.table("users").select("trips_count").eq("telegram_id", data.telegram_id).execute()
+        if u.data:
+            current = u.data[0].get("trips_count") or 0
+            db.table("users").update({"trips_count": current + 1}).eq("telegram_id", data.telegram_id).execute()
 
         return {
             "success": True,
